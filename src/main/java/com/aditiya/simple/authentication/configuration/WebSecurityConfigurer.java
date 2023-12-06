@@ -58,7 +58,7 @@ public class WebSecurityConfigurer {
         .csrf(CsrfConfigurer::disable)
         .exceptionHandling(exception -> exception.authenticationEntryPoint(this.unauthorizedHandler))
         .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
-        .authorizeHttpRequests(request -> request.requestMatchers("/tokens", "/swagger-ui/**", "/v3/api-docs/**").permitAll().anyRequest().authenticated());
+        .authorizeHttpRequests(request -> request.requestMatchers("/tokens", "/swagger-ui/**", "/v3/api-docs/**", "/register").permitAll().anyRequest().authenticated());
 
         http.addFilterBefore(authenticationJwtTokenFilter(), UsernamePasswordAuthenticationFilter.class);
         return http.build();

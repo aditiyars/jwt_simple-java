@@ -23,4 +23,8 @@ public class ApplicationUserService implements UserDetailsService{
         );
         return UserPrincipal.build(applicationUser);
     }
+
+    public ApplicationUser createUser(ApplicationUser applicationUser){
+        return applicationUserRepository.save(applicationUser);
+    }
 }

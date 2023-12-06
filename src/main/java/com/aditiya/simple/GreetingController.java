@@ -15,6 +15,6 @@ class GreetingController {
     public String greet() {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         UserPrincipal userPrincipal = (UserPrincipal) authentication.getPrincipal();
-        return "Hello " + userPrincipal.getEmail();
+        return "Hello " + userPrincipal.getEmail() +"\n" + "pass : " + userPrincipal.getPassword();
     }
 }
